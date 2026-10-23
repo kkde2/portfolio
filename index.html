@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>马碧娜 · 影视作品集 / AI 视效</title>
+<meta name="description" content="马碧娜 — AIGC 抽卡师 / AI 视效内容创作者。AI 影像、短剧叙事、三维动效作品集与简历。">
+<meta name="theme-color" content="#fff0f6">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-layer" aria-hidden="true">
+  <div class="bg-blob blob-a"></div>
+  <div class="bg-blob blob-b"></div>
+  <div class="bg-blob blob-c"></div>
+  <div class="bg-grid"></div>
+  <canvas id="particles" class="bg-particles" aria-hidden="true"></canvas>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="#top">
+    <svg class="brand-cat" viewBox="0 0 120 110" fill="none" stroke="currentColor"
+         stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M31 47 L27 21 L49 33"/>
+      <path d="M89 47 L93 21 L71 33"/>
+      <ellipse cx="60" cy="59" rx="33" ry="29"/>
+      <path d="M49 54 v5 M71 54 v5"/>
+      <path d="M57 65 q3 3 6 0"/>
+    </svg>
+    <span class="brand-txt">Portfolio</span>
+  </a>
+
+  <nav class="nav" aria-label="页面导航">
+    <a href="#about" class="nav-link"><span class="cn">关于</span><span class="en">About</span></a>
+    <a href="#narrative" class="nav-link"><span class="cn">影像</span><span class="en">Films</span></a>
+    <a href="#edit" class="nav-link"><span class="cn">剪辑</span><span class="en">Editing</span></a>
+    <a href="#motion" class="nav-link"><span class="cn">动效</span><span class="en">Motion</span></a>
+    <a href="#contact" class="nav-link"><span class="cn">联系</span><span class="en">Contact</span></a>
+  </nav>
+
+  <button class="lang-toggle" id="langToggle" type="button" aria-label="切换语言 / Switch language">
+    <span class="lang-opt" data-l="cn">中</span>
+    <span class="lang-div">/</span>
+    <span class="lang-opt" data-l="en">EN</span>
+  </button>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero-deco" aria-hidden="true">
+    <svg class="cloud cloud-1" viewBox="0 0 220 110" fill="currentColor">
+      <path d="M52 92c-22 0-38-15-38-33 0-17 14-31 32-32C50 12 65 2 84 2c21 0 38 14 42 33 5-3 11-4 17-4 19 0 34 15 34 34s-15 34-34 34H52Z"/>
+    </svg>
+    <svg class="cloud cloud-2" viewBox="0 0 220 110" fill="currentColor">
+      <path d="M52 92c-22 0-38-15-38-33 0-17 14-31 32-32C50 12 65 2 84 2c21 0 38 14 42 33 5-3 11-4 17-4 19 0 34 15 34 34s-15 34-34 34H52Z"/>
+    </svg>
+    <div class="dot d1"></div>
+    <div class="dot d2"></div>
+    <div class="dot d3"></div>
+    <div class="star s1">&#10022;</div>
+    <div class="star s2">&#10023;</div>
+  </div>
+
+  <p class="hero-eyebrow reveal">
+    <span class="cn">影像 · 叙事 · 动效</span>
+    <span class="en">FILM &middot; NARRATIVE &middot; MOTION</span>
+  </p>
+
+  <h1 class="hero-title" id="heroTitle">
+    <span class="hero-title-cn jelly reveal">影视作品集</span>
+    <span class="hero-title-en jelly-en reveal" aria-hidden="true">Portfolio</span>
+  </h1>
+
+  <p class="hero-sub reveal">
+    <span class="cn">从一句提示词，到一条交得出去的成片。</span>
+    <span class="en">From a single prompt to a cut you can actually deliver.</span>
+  </p>
+
+  <svg class="squiggle" viewBox="0 0 400 60" fill="none" stroke="currentColor"
+       stroke-width="3" stroke-linecap="round" aria-hidden="true">
+    <path d="M8 40 Q 38 8 68 40 T 128 40 T 188 40 T 248 40 T 308 40 T 392 34"/>
+  </svg>
+
+  <div class="hero-meta reveal">
+    <span class="hero-name" data-cn="马碧娜" data-en="Ma Bina">马碧娜</span>
+    <span class="hero-rule"></span>
+    <span class="hero-role" data-cn="AIGC 抽卡师 / AI 视效内容创作者" data-en="AIGC Prompt Artist / AI Visual Creator">AIGC 抽卡师 / AI 视效内容创作者</span>
+  </div>
+
+  <div class="hero-chips reveal">
+    <span class="chip" data-cn="AIGC 抽卡" data-en="Prompt Crafting">AIGC 抽卡</span>
+    <span class="chip" data-cn="AI 影像" data-en="AI Imagery">AI 影像</span>
+    <span class="chip" data-cn="短剧叙事" data-en="Short Drama">短剧叙事</span>
+    <span class="chip" data-cn="C4D 三维" data-en="3D / C4D">C4D 三维</span>
+    <span class="chip" data-cn="MG 动效" data-en="Motion Design">MG 动效</span>
+  </div>
+
+  <a class="scroll-hint" href="#about">
+    <span class="cn">往下看</span><span class="en">Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v14M6 13l6 6 6-6"/></svg>
+  </a>
+</section>
+<section class="chapter" id="about">
+  <div class="chapter-head reveal">
+    <span class="chapter-num" aria-hidden="true">01</span>
+    <div class="chapter-txt">
+      <h2 class="chapter-title">
+        <span class="cn">关于我</span><span class="en">About</span>
+      </h2>
+      <p class="chapter-kicker">
+        <span class="cn">AIGC 全链路内容创作 &mdash; 从一句提示词，到一条交得出去的成片</span>
+        <span class="en">Full-chain AIGC production &mdash; from a single prompt to a deliverable cut</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="resume-grid">
+
+    <!-- -------- 左栏 -------- -->
+    <div class="resume-col resume-col--lead">
+
+      <div class="resume-card reveal">
+        <div class="profile-head">
+          <span class="profile-mark" aria-hidden="true">MB</span>
+          <div class="profile-id">
+            <h3 class="profile-name"><span class="cn">马碧娜</span><span class="en">Ma Bina</span></h3>
+            <p class="profile-role">
+              <span class="cn">AIGC 抽卡师 / AI 视效内容创作者</span>
+              <span class="en">AIGC Prompt Artist / AI Visual Creator</span>
+            </p>
+          </div>
+        </div>
+
+        <p class="about-body">
+          <span class="cn">熟悉 AIGC 全链路内容创作，熟练使用 ComfyUI、即梦 AI 完成图像、视频生成；精通 PS、PR、AE、C4D，可独立完成三维建模、视觉合成、短视频剪辑与特效包装。擅长结合 AI 工具优化传统制作流程，提升出图与成片效率，能根据需求产出高质量视觉素材，具备良好审美与项目落地能力。</span>
+          <span class="en">Versed in the full AIGC content chain &mdash; generating images and video with ComfyUI and Jimeng AI &mdash; and fluent in Photoshop, Premiere, After Effects and Cinema 4D, I independently handle 3D modelling, visual compositing, short-form editing and VFX packaging. I specialise in folding AI tools into conventional pipelines to speed up both frame output and final delivery, turning a brief into high-quality visuals with a solid eye and a realistic sense of what actually ships.</span>
+        </p>
+
+        <div class="tags">
+          <span class="tag" data-cn="AIGC 全链路" data-en="AIGC Pipeline">AIGC 全链路</span>
+          <span class="tag">ComfyUI</span>
+          <span class="tag" data-cn="即梦 AI" data-en="Jimeng AI">即梦 AI</span>
+          <span class="tag" data-cn="三维建模" data-en="3D Modelling">三维建模</span>
+          <span class="tag" data-cn="视觉合成" data-en="Compositing">视觉合成</span>
+          <span class="tag" data-cn="特效包装" data-en="VFX Packaging">特效包装</span>
+        </div>
+      </div>
+
+      <div class="resume-card resume-card--skills reveal">
+        <h3 class="rsec-title"><span class="cn">软件技能</span><span class="en">Software</span></h3>
+        <div class="tool-tiles">
+          <span class="tool-tile"><b>Ps</b>Photoshop</span>
+          <span class="tool-tile"><b>Pr</b>Premiere Pro</span>
+          <span class="tool-tile"><b>Ae</b>After Effects</span>
+          <span class="tool-tile"><b>C4D</b>Cinema 4D</span>
+          <span class="tool-tile tool-tile--ai"><b>CF</b>ComfyUI</span>
+          <span class="tool-tile tool-tile--ai"><b>JM</b><span class="cn">即梦 AI</span><span class="en">Jimeng AI</span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- -------- 右栏 -------- -->
+    <div class="resume-col">
+
+      <div class="resume-card reveal">
+        <h3 class="rsec-title"><span class="cn">实习 / 工作经历</span><span class="en">Experience</span></h3>
+
+        <div class="rrow">
+          <div class="rrow-head">
+            <h4 class="rrow-title">思阳传媒有限公司</h4>
+            <span class="rrow-time">2026.03 &mdash; 2026.08</span>
+          </div>
+          <p class="rrow-sub"><span class="cn">剪辑助理 &middot; 实习</span><span class="en">Editing Assistant &middot; Intern</span></p>
+          <ul class="rlist">
+            <li><span class="cn">协助剪辑师完成品牌宣传片、活动纪录片的粗剪与时间线搭建，参与分镜脚本对照、素材筛选与场记整理。</span><span class="en">Assisted the editor with rough cuts and timeline builds for brand promos and event documentaries; took part in matching the shot list against the storyboard, selecting footage and logging takes.</span></li>
+            <li><span class="cn">负责成片字幕校对、片头片尾包装、LOGO 与角标替换，完成多版本导出（横版 / 竖版 / 不同时长），确保交付格式符合客户与投放平台要求。</span><span class="en">Handled subtitle proofreading, intro and outro packaging, and logo &amp; bug replacement; exported multiple versions (landscape / vertical / varied lengths) to meet both client and platform specs.</span></li>
+          </ul>
+        </div>
+
+        <div class="rrow">
+          <div class="rrow-head">
+            <h4 class="rrow-title">无锡明兆科技有限公司</h4>
+            <span class="rrow-time">2024.09 &mdash; 2025.12</span>
+          </div>
+          <p class="rrow-sub"><span class="cn">行政 ｜ 兼视觉物料支持</span><span class="en">Administration | Visual Asset Support</span></p>
+          <ul class="rlist">
+            <li><span class="cn">负责公司日常行政事务与办公物资管理，保障各部门日常运转。</span><span class="en">Ran day-to-day office administration and supply management, keeping every team running.</span></li>
+            <li><span class="cn">负责公司宣传物料、活动海报与短视频的 AI 视觉素材产出，支撑品牌宣传与活动传播。</span><span class="en">Produced AI visuals for company collateral, event posters and short videos, powering brand and campaign communication.</span></li>
+            <li><span class="cn">协助组织内部会议与员工活动，完成纪要撰写、资料整理与档案归档，对接跨部门沟通与来访接待。</span><span class="en">Helped organise internal meetings and staff events &mdash; writing minutes, sorting materials, archiving files &mdash; and handled cross-team coordination and visitor reception.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-card reveal">
+        <h3 class="rsec-title"><span class="cn">项目经验</span><span class="en">Selected Project</span></h3>
+
+        <div class="rrow">
+          <div class="rrow-head">
+            <h4 class="rrow-title">六安银行合作影片《汇款这件小事》</h4>
+            <span class="rrow-time">2026.09 &mdash; 2026.10</span>
+          </div>
+          <p class="rrow-sub"><span class="cn">AIGC 全片视觉制作 &middot; 银行科普短片</span><span class="en">AIGC Full-pipeline Visuals &middot; Bank Explainer Film</span></p>
+          <ul class="rlist">
+            <li><span class="cn">运用即梦 AI、ComfyUI 生成动态镜头，搭配 AE 特效合成、PR 剪辑、PS 精修，完成银行科普短片全套视觉内容。</span><span class="en">Generated motion shots with Jimeng AI and ComfyUI, then layered AE effects compositing, Premiere editing and Photoshop retouching to deliver the full visual package for the bank's explainer film.</span></li>
+            <li><span class="cn">针对金融题材画面严谨性要求，定制提示词与参考图管控方案，保障画面风格统一、数据图表视觉准确。</span><span class="en">Built a custom prompt and reference-image control system for the rigor finance topics demand, keeping the visual style consistent and every data chart accurate.</span></li>
+            <li><span class="cn">完成 3 分钟科普短片全片视觉素材制作，产出概念图、镜头素材 180+ 张，将传统实拍 + 动画制作周期缩短 55%。</span><span class="en">Produced the complete visual assets for a three-minute explainer, delivering 180+ concept and shot frames and cutting the traditional live-action plus animation schedule by 55%.</span></li>
+          </ul>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric">
+            <span class="metric-num">180+</span>
+            <span class="metric-label"><span class="cn">视觉素材</span><span class="en">Visual Assets</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-num">55%</span>
+            <span class="metric-label"><span class="cn">周期缩短</span><span class="en">Faster</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-num">3min+</span>
+            <span class="metric-label"><span class="cn">成片时长</span><span class="en">Runtime</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="stats-card stats-strip reveal">
+    <div class="stat">
+      <span class="stat-num" data-count="7">7</span>
+      <span class="stat-label"><span class="cn">部作品</span><span class="en">Works</span></span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">10<small>min</small></span>
+      <span class="stat-label"><span class="cn">总时长</span><span class="en">Runtime</span></span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count="3">3</span>
+      <span class="stat-label"><span class="cn">种形态</span><span class="en">Formats</span></span>
+    </div>
+    <div class="stat-deco" aria-hidden="true">&#10022;</div>
+  </div>
+</section>
+
+<section class="chapter" id="narrative">
+  <div class="chapter-head reveal">
+    <span class="chapter-num" aria-hidden="true">02</span>
+    <div class="chapter-txt">
+      <h2 class="chapter-title">
+        <span class="cn">影像叙事</span><span class="en">Narrative Films</span>
+      </h2>
+      <p class="chapter-kicker">
+        <span class="cn">古装的宿命、悬疑的推理、企业的说服——先立住人，再谈画面</span>
+        <span class="en">Fate, deduction, persuasion &mdash; character first, frames second</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="work-grid">
+
+    <article class="work-card work-card--wide reveal">
+      <div class="work-media">
+        <video preload="none" playsinline muted
+               poster="assets/images/cover-01.jpg"
+               src="assets/videos/01-broken-shackles.mp4"
+               data-title="原样奉还"></video>
+        <button class="play-btn" type="button" aria-label="播放《原样奉还》">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="runtime">02:34</span>
+        <span class="badge" data-cn="AI 短剧" data-en="AI Drama">AI 短剧</span>
+      </div>
+      <div class="work-body">
+        <h3 class="work-title">
+          <span class="cn">原样奉还</span><span class="en">Returned As Given</span>
+        </h3>
+        <p class="work-desc">
+          <span class="cn">祠堂烛火下，被当作替身养大的女孩，把别人强加给她的命运原样奉还。</span>
+          <span class="en">By candlelight in the ancestral hall, a girl raised as a stand-in hands back the fate that was forced on her.</span>
+        </p>
+        <div class="work-tags">
+          <span data-cn="AI 生成" data-en="AI Gen">AI 生成</span><span data-cn="分镜设计" data-en="Storyboard">分镜设计</span><span data-cn="剪辑" data-en="Editing">剪辑</span><span data-cn="调色" data-en="Color Grading">调色</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="work-card reveal">
+      <div class="work-media">
+        <video preload="none" playsinline muted
+               poster="assets/images/cover-06.jpg"
+               src="assets/videos/06-mystery-ai.mp4"
+               data-title="破案"></video>
+        <button class="play-btn" type="button" aria-label="播放《破案》">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="runtime">02:07</span>
+        <span class="badge" data-cn="AI 短剧" data-en="AI Drama">AI 短剧</span>
+      </div>
+      <div class="work-body">
+        <h3 class="work-title"><span class="cn">破案</span><span class="en">The Break</span></h3>
+        <p class="work-desc">
+          <span class="cn">河岸的命案现场，刑警从一句被错读的暗号里，拽出了另一个人的名字。</span>
+          <span class="en">At a riverside crime scene, a detective pulls a second name out of a misread code.</span>
+        </p>
+        <div class="work-tags"><span data-cn="AI 生成" data-en="AI Gen">AI 生成</span><span data-cn="悬疑叙事" data-en="Suspense">悬疑叙事</span><span data-cn="剪辑" data-en="Editing">剪辑</span><span data-cn="音效" data-en="Sound Design">音效</span></div>
+      </div>
+    </article>
+
+    <article class="work-card reveal">
+      <div class="work-media">
+        <video preload="none" playsinline muted
+               poster="assets/images/cover-05.jpg"
+               src="assets/videos/05-forex-risk.mp4"
+               data-title="汇率波动下的利润变化"></video>
+        <button class="play-btn" type="button" aria-label="播放《汇率波动下的利润变化》">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="runtime">03:17</span>
+        <span class="badge badge-cyan" data-cn="剧情科普" data-en="Explainer">剧情科普</span>
+      </div>
+      <div class="work-body">
+        <h3 class="work-title">
+          <span class="cn">汇率波动下的利润变化</span><span class="en">When the Yuan Moves</span>
+        </h3>
+        <p class="work-desc">
+          <span class="cn">把套期保值这件枯燥的事，讲成一场董事会里的对话——数字因此有了温度。</span>
+          <span class="en">Hedging, told as a conversation in a boardroom &mdash; so the numbers finally carry some warmth.</span>
+        </p>
+        <div class="work-tags"><span data-cn="剧情化表达" data-en="Narrative">剧情化表达</span><span data-cn="信息图表" data-en="Infographic">信息图表</span><span data-cn="4K 交付" data-en="4K Deliverable">4K 交付</span></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+<section class="chapter" id="edit">
+  <div class="chapter-head reveal">
+    <span class="chapter-num" aria-hidden="true">03</span>
+    <div class="chapter-txt">
+      <h2 class="chapter-title">
+        <span class="cn">剪辑</span><span class="en">Editing</span>
+      </h2>
+      <p class="chapter-kicker">
+        <span class="cn">节奏、取舍、情绪落点，都在剪辑台上定下来</span>
+        <span class="en">Pace, cuts and emotional beats &mdash; all decided at the edit desk</span>
+      </p>
+    </div>
+  </div>
+
+  <article class="work-card work-card--hero reveal">
+    <div class="work-media">
+      <video preload="none" playsinline muted
+             poster="assets/images/cover-02.jpg"
+             src="assets/videos/02-tianhe-residence.mp4"
+             data-title="在世界天府，亦在烟火成都"></video>
+      <button class="play-btn play-btn--lg" type="button" aria-label="播放在世界天府，亦在烟火成都">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <span class="runtime">00:31</span>
+      <span class="badge" data-cn="品牌形象片" data-en="Brand Film">品牌形象片</span>
+    </div>
+    <div class="work-body">
+      <h3 class="work-title">
+        <span class="cn">在世界天府，亦在烟火成都</span>
+        <span class="en">Where Tianfu Meets Home</span>
+      </h3>
+      <p class="work-desc">
+        <span class="cn">用一对老伴的日常，把 141㎡ 与 171㎡ 讲成"家"，而不是"户型"。</span>
+        <span class="en">Through one old couple's everyday, 141 and 171 square meters stop being floor plans and become a home.</span>
+      </p>
+      <div class="work-tags"><span data-cn="品牌片" data-en="Brand Film">品牌片</span><span data-cn="情绪调度" data-en="Mood Direction">情绪调度</span><span data-cn="剪辑" data-en="Editing">剪辑</span><span data-cn="字幕包装" data-en="Subtitling">字幕包装</span></div>
+    </div>
+  </article>
+</section>
+
+<section class="chapter" id="motion">
+  <div class="chapter-head reveal">
+    <span class="chapter-num" aria-hidden="true">04</span>
+    <div class="chapter-txt">
+      <h2 class="chapter-title">
+        <span class="cn">三维与动效</span><span class="en">3D &amp; Motion</span>
+      </h2>
+      <p class="chapter-kicker">
+        <span class="cn">材质、节奏、色彩编码——不用人物也能讲故事</span>
+        <span class="en">Material, rhythm, colour coding &mdash; stories without faces</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="work-grid work-grid--3">
+
+    <article class="work-card reveal">
+      <div class="work-media">
+        <video preload="none" playsinline muted
+               poster="assets/images/cover-03.jpg"
+               src="assets/videos/03-headphone-c4d.mp4"
+               data-title="INFERIOR"></video>
+        <button class="play-btn" type="button" aria-label="播放 INFERIOR">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="runtime">00:29</span>
+        <span class="badge badge-purple">C4D</span>
+      </div>
+      <div class="work-body">
+        <h3 class="work-title"><span class="cn">INFERIOR</span><span class="en">Headphone Product Film</span></h3>
+        <p class="work-desc">
+          <span class="cn">青底、红白撞色、硬边排版——用"缺陷"的叙事讲一副耳机的质感。</span>
+          <span class="en">Cyan ground, red-and-white collision, hard-edged type &mdash; a product film told through failure.</span>
+        </p>
+        <div class="work-tags"><span>Cinema 4D</span><span data-cn="产品渲染" data-en="Rendering">产品渲染</span><span data-cn="材质灯光" data-en="Look Dev">材质灯光</span></div>
+      </div>
+    </article>
+
+    <article class="work-card reveal">
+      <div class="work-media">
+        <video preload="none" playsinline muted
+               poster="assets/images/cover-04.jpg"
+               src="assets/videos/04-stekio-mg.mp4"
+               data-title="STEKIO"></video>
+        <button class="play-btn" type="button" aria-label="播放 STEKIO">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="runtime">00:43</span>
+        <span class="badge badge-purple">MG</span>
+      </div>
+      <div class="work-body">
+        <h3 class="work-title"><span class="cn">STEKIO</span><span class="en">Motion Identity</span></h3>
+        <p class="work-desc">
+          <span class="cn">点、线、圆形构成的极简系统，把"聚合"拆成 43 秒的呼吸。</span>
+          <span class="en">Dots, lines and circles &mdash; a minimal system that breathes "gathering" for 43 seconds.</span>
+        </p>
+        <div class="work-tags"><span data-cn="MG 动画" data-en="Motion GFX">MG 动画</span><span data-cn="视觉系统" data-en="Visual System">视觉系统</span><span data-cn="节奏设计" data-en="Rhythm">节奏设计</span></div>
+      </div>
+    </article>
+
+    <article class="work-card reveal">
+      <div class="work-media work-media--light">
+        <video preload="none" playsinline muted
+               poster="assets/images/cover-07.jpg"
+               src="assets/videos/07-olympics-mg.mp4"
+               data-title="里约奥运 · 中国时刻"></video>
+        <button class="play-btn" type="button" aria-label="播放 里约奥运 · 中国时刻">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="runtime">00:17</span>
+        <span class="badge badge-purple">MG</span>
+      </div>
+      <div class="work-body">
+        <h3 class="work-title">
+          <span class="cn">里约奥运 · 中国时刻</span><span class="en">Rio 2016 &middot; Team China</span>
+        </h3>
+        <p class="work-desc">
+          <span class="cn">射击、羽毛球、游泳、自行车、举重——用最少的形状，给每个项目一种颜色。</span>
+          <span class="en">Shooting, badminton, swimming, cycling, weightlifting &mdash; minimum shapes, one colour per sport.</span>
+        </p>
+        <div class="work-tags"><span data-cn="MG 动画" data-en="Motion GFX">MG 动画</span><span data-cn="图标设计" data-en="Iconography">图标设计</span><span data-cn="色彩编码" data-en="Colour Coding">色彩编码</span></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+<section class="outro" id="contact">
+  <div class="outro-deco" aria-hidden="true">
+    <svg class="cloud cloud-3" viewBox="0 0 220 110" fill="currentColor">
+      <path d="M52 92c-22 0-38-15-38-33 0-17 14-31 32-32C50 12 65 2 84 2c21 0 38 14 42 33 5-3 11-4 17-4 19 0 34 15 34 34s-15 34-34 34H52Z"/>
+    </svg>
+    <div class="star s3">&#10022;</div>
+  </div>
+
+  <p class="outro-thanks jelly reveal"><span data-cn="感谢观看" data-en="Thank You">感谢观看</span></p>
+  <p class="outro-thanks-en reveal">THANKS FOR WATCHING</p>
+
+  <div class="contact-box reveal">
+    <p class="contact-lead">
+      <span class="cn">有项目想聊？随时找我。</span>
+      <span class="en">Got a project in mind? Let's talk.</span>
+    </p>
+    <div class="contact-links">
+      <a class="contact-item" href="mailto:1975835@163.com">
+        <span class="ci-label">EMAIL</span>
+        <span class="ci-value">1975835@163.com</span>
+      </a>
+      <a class="contact-item" href="tel:+8618668089739">
+        <span class="ci-label">PHONE</span>
+        <span class="ci-value">186 6808 9739</span>
+      </a>
+      <span class="contact-item contact-item--qr">
+        <span class="ci-label">WECHAT</span>
+        <span class="ci-value"><span class="cn">扫码添加</span><span class="en">Scan to add</span></span>
+        <span class="ci-hint ci-hint--hover"><span class="cn">悬停或点击看二维码</span><span class="en">Hover or tap for QR</span></span>
+        <span class="ci-hint ci-hint--touch"><span class="cn">点击看二维码</span><span class="en">Tap for QR</span></span>
+
+        <span class="qr-pop" role="tooltip">
+          <img class="qr-img" src="assets/images/wechat-qr.png"
+               alt="微信二维码，扫码添加马碧娜为好友" width="188" height="188" loading="lazy" decoding="async">
+          <span class="qr-tip"><span class="cn">微信扫码，添加我为好友</span><span class="en">Scan with WeChat to connect</span></span>
+        </span>
+      </span>
+      <span class="contact-item">
+        <span class="ci-label">CITY</span>
+        <span class="ci-value"><span class="cn">上海</span><span class="en">Shanghai</span></span>
+      </span>
+    </div>
+    <p class="contact-note">
+      <span class="cn">现居上海 &middot; 可远程 / 可出差 &middot; 作品集持续更新</span>
+      <span class="en">Based in Shanghai &middot; Remote or on-site &middot; Portfolio updated regularly</span>
+    </p>
+  </div>
+
+  <a class="back-top" href="#top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V6M6 11l6-6 6 6"/></svg>
+    <span class="cn">回到顶部</span><span class="en">Back to top</span>
+  </a>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>&copy; <span id="year">2026</span> Portfolio</span>
+  <span class="footer-dot">&middot;</span>
+  <span>Made with frames &amp; patience</span>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" type="button" aria-label="关闭">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="lb-inner">
+    <video id="lbVideo" controls playsinline preload="metadata"></video>
+    <p class="lb-caption" id="lbCaption"></p>
+  </div>
+</div>
+
+<script src="assets/js/particles.js"></script>
+<script src="assets/js/pageturn.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
