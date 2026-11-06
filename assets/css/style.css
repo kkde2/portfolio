@@ -1168,6 +1168,18 @@ html[data-lang="en"] .lang-opt[data-l="en"] { color: var(--rose-deep); }
 
 .work-grid--3 { grid-template-columns: repeat(3, 1fr); }
 
+/* 竖版短视频：两列收窄居中，媒体区跟随视频原生比例，避免被 16:9 裁成一条 */
+.work-grid--vertical {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 740px;
+  margin: clamp(22px, 3vw, 38px) auto 0;
+  align-items: start;
+}
+
+/* 双类名提高优先级，压过后面的 .work-media { aspect-ratio: 16/9 } */
+.work-media.work-media--916 { aspect-ratio: 9 / 16; }
+.work-media.work-media--34 { aspect-ratio: 3 / 4; }
+
 .work-card {
   position: relative;
   display: flex;
@@ -1788,7 +1800,10 @@ html[data-lang="en"] .outro-thanks-en { display: none; }
   .brand-txt { display: none; }
 
   .work-grid,
-  .work-grid--3 { grid-template-columns: 1fr; }
+  .work-grid--3,
+  .work-grid--vertical { grid-template-columns: 1fr; }
+
+  .work-grid--vertical { max-width: 420px; }
   .work-card--wide .work-media { aspect-ratio: 16 / 9; }
 
   .chapter-num { font-size: clamp(2.6rem, 12vw, 4rem); }
